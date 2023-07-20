@@ -16,7 +16,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
   const [expandInfo, setExpandInfo] = useState<boolean[]>(Array(meanings.length).fill(true));
   const [examplesInfo, setExamplesInfo] = useState<boolean>(true);
 
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
 
   const playAudio = (index: number) => {
     try {
@@ -38,8 +38,6 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
   return (
     <div className="mt-5">
       <div className="flex flex-col justify-start gap-5">
-
-
         <div className="flex flex-col">
           <h3>{t("Word")}</h3>
           <div className="flex flex-row justify-between">
@@ -154,15 +152,12 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 </>
               )
             }
-
-
           </ul>
         )}
 
-
         {meanings[0].synonyms.length > 0 && (
           <div>
-            <h2 className="font-bold">Синонимы: </h2>
+            <h2 className="font-bold">{t('Synonyms')}: </h2>
             <div className="grid grid-cols-3">
               {meanings[0].synonyms.map((item, index) => (
                 <p key={index} onClick={() => updateData(item)}>
@@ -176,7 +171,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
 
         {meanings[0].antonyms.length > 0 && (
           <div>
-            <h2 className="font-bold">Антонимы: </h2>
+            <h2 className="font-bold">{t('Antonyms')}: </h2>
             {meanings[0].antonyms.map((item, index) => (
               <p key={index} onClick={() => updateData(item)}>
                 {item}

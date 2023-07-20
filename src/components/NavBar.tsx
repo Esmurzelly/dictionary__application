@@ -39,7 +39,7 @@ const NavBar = () => {
       </div>
       <button 
         onClick={handleSwitchTheme}
-        className='bg-black px-2 py-1 rounded-sm text-white w-[150px]'>{t("Theme")}</button>
+        className='bg-black px-2 py-1 rounded-sm text-white w-[150px] dark:bg-white dark:text-black'>{t("Theme")}</button>
     </div>
   )
 }

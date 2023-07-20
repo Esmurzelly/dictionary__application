@@ -5,6 +5,8 @@ import { IResult } from '@/types';
 import NavBar from '@/components/NavBar';
 
 import { useTranslation } from 'react-i18next';
+import HistoryRequests from '@/components/HistoryRequests';
+import PopularWords from '@/components/PopularWords';
 
 // import Button from '@/components/Button'; // change
 
@@ -103,6 +105,7 @@ const Main = () => {
                     meanings={result.meanings}
                 />}
             </div>
+            <PopularWords updateData={updateData} />
         </div>
     )
 }
