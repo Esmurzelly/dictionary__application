@@ -64,7 +64,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 {phonetics.map((phonetic, index) => (
                   <>
                     {phonetic.audio.length > 1 && (
-                      <PlayCircleIcon className="w-6 h-full" onClick={() => playAudio(index)} />
+                      <PlayCircleIcon className="w-6 h-full cursor-pointer" onClick={() => playAudio(index)} />
                     )}
                   </>
                 ))}
@@ -160,7 +160,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
             <h2 className="font-bold">{t('Synonyms')}: </h2>
             <div className="grid grid-cols-3">
               {meanings[0].synonyms.map((item, index) => (
-                <p key={index} onClick={() => updateData(item)}>
+                <p className="cursor-pointer" key={index} onClick={() => updateData(item)}>
                   {item}
                 </p>
               ))}
@@ -173,7 +173,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           <div>
             <h2 className="font-bold">{t('Antonyms')}: </h2>
             {meanings[0].antonyms.map((item, index) => (
-              <p key={index} onClick={() => updateData(item)}>
+              <p className="cursor-pointer" key={index} onClick={() => updateData(item)}>
                 {item}
               </p>
             ))}

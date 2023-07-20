@@ -4,15 +4,22 @@ import ListDetails from '@/components/ListDetails';
 import { IResult } from '@/types';
 import NavBar from '@/components/NavBar';
 
+import { useSelector, useDispatch } from 'react-redux';
+
 import { useTranslation } from 'react-i18next';
-import HistoryRequests from '@/components/HistoryRequests';
 import PopularWords from '@/components/PopularWords';
+import Favourites from '@/components/Favourites';
+
+import { addFavouriteWord, removeFavouriteWord } from '@/store/favouritesWords';
 
 // import Button from '@/components/Button'; // change
 
 const Main = () => {
     const [keyWord, setKeyWord] = useState<string>('');
     const [result, setResult] = useState<null | IResult>(null);
+
+    const favouriteWords = useSelector((state: any) => state.favourite.favourites);
+    const dispatch = useDispatch();
 
     const {t} = useTranslation();
 
@@ -51,6 +58,16 @@ const Main = () => {
         }
     }
 
+    const handleAddFavouriteWord = (item: string) => {
+        dispatch(addFavouriteWord(item));
+    }
+    const handleRemoveFavouriteWord = (item: string) => {
+        const indexToRemove = favouriteWords.indexOf(item);
+        if(indexToRemove !== -1) {
+            dispatch(removeFavouriteWord(indexToRemove));
+        }
+    }
+
     return (
         <div className="app min-h-screen p-5 bg-secondary dark:bg-primary dark:text-white">
             <NavBar />
@@ -68,7 +85,7 @@ const Main = () => {
                     />
 
                     <div
-                        className="flex flex-row gap-8"
+                        className="flex flex-row gap-8 flex-wrap"
                     >
                         <button
                             type='submit'
@@ -94,6 +111,22 @@ const Main = () => {
                         >
                             {t('Copy')}
                         </button>
+
+                        <button
+                            disabled={!result}
+                            onClick={() => handleAddFavouriteWord(keyWord)}
+                            className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
+                        >
+                            Добавить в избранное
+                        </button>
+
+                        <button
+                            disabled={!result}
+                            onClick={() => handleRemoveFavouriteWord(keyWord)}
+                            className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
+                        >
+                            Удалить из избранного
+                        </button>
                     </div>
                 </form>
 
@@ -106,6 +139,8 @@ const Main = () => {
                 />}
             </div>
             <PopularWords updateData={updateData} />
+
+            <Favourites updateData={updateData} />
         </div>
     )
 }

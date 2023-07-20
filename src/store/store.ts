@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import historyReducer from './historyRequests';
+import historyReducer from './popularRequests';
+import favouritesReducer from './favouritesWords';
 
 const store = configureStore({
     reducer: {
-       history: historyReducer
+       popular: historyReducer,
+       favourite: favouritesReducer
     }
 })
 

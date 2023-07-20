@@ -9,7 +9,7 @@ type Props = {
 
 const PopularWords = ({updateData}: Props) => {
   const [showWords, setShowWords] = useState<boolean>(false);
-  const history = useSelector((state: any) => state.history.history);
+  const popular = useSelector((state: any) => state.popular.popular);
 
   const handleSwitchWord = () => {
     setShowWords(prev => !prev)
@@ -27,10 +27,11 @@ const PopularWords = ({updateData}: Props) => {
       </div>
       {showWords && (
         <ul className='grid grid-cols-3'>
-          {history.map((item: string, index: number) => (
+          {popular.map((item: string, index: number) => (
             <li 
               key={index}
               onClick={() => updateData(item)}
+              className='cursor-pointer'
             >
               {item}
             </li>
