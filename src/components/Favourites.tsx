@@ -15,7 +15,6 @@ const Favourites = ({updateData}: Props) => {
     setShowFavouriteWords(prev => !prev);
   }
 
-  console.log('favouriteWords', favouriteWords)
   return (
     <div className='mt-5 max-w-7xl mx-auto'>
       <div className='flex gap-1'>

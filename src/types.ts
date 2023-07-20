@@ -11,6 +11,7 @@ export interface IDefinitions {
 }
 
 export interface IMeaning {
+    [x: string]: any;
     partOfSpeech: Array<string>,
     antonyms: Array<string>,
     synonyms: Array<string>,

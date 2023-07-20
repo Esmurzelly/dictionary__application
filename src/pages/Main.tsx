@@ -11,6 +11,8 @@ import PopularWords from '@/components/PopularWords';
 import Favourites from '@/components/Favourites';
 
 import { addFavouriteWord, removeFavouriteWord } from '@/store/favouritesWords';
+import { addHistoryWord } from '@/store/historyRequests';
+import HistoryRequests from '@/components/HistoryRequests';
 
 // import Button from '@/components/Button'; // change
 
@@ -19,7 +21,13 @@ const Main = () => {
     const [result, setResult] = useState<null | IResult>(null);
 
     const favouriteWords = useSelector((state: any) => state.favourite.favourites);
+    const historyWords = useSelector((state: any) => state.history.history)
+
     const dispatch = useDispatch();
+
+    const addHistoryWordFunction = (item: string) => {
+        dispatch(addHistoryWord(item))
+    }
 
     const {t} = useTranslation();
 
@@ -29,6 +37,8 @@ const Main = () => {
         try {
             const res = await axios.get(`${api}/${keyWord}`);
             setResult(res.data[0]);
+
+            addHistoryWordFunction(keyWord)
 
             console.log('res data ', res.data);
             console.log('res data [0] ', res.data[0]);
@@ -141,6 +151,8 @@ const Main = () => {
             <PopularWords updateData={updateData} />
 
             <Favourites updateData={updateData} />
+
+            <HistoryRequests arrWords={historyWords} />
         </div>
     )
 }

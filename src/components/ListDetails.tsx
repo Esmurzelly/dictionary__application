@@ -1,4 +1,4 @@
-import { IPhonetics } from "@/types"
+import { IDefinitions, IPhonetics } from "@/types"
 import { IMeaning } from "@/types"
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
 import { useState } from "react";
@@ -16,7 +16,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
   const [expandInfo, setExpandInfo] = useState<boolean[]>(Array(meanings.length).fill(true));
   const [examplesInfo, setExamplesInfo] = useState<boolean>(true);
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const playAudio = (index: number) => {
     try {
@@ -121,13 +121,44 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
         </div>
 
 
-        {meanings[0].definitions[0].definition && (
+
+
+
+        {/* <>
+          {meanings.map((item) => {
+            {
+              console.log('item.definitions', item.definitions, typeof item.definitions)
+              item.definitions.map((item2) => {
+                {
+                  console.log('item2', item2, typeof item2)
+                  item2.example && (
+                    console.log(item2.example, typeof item2.example)
+                  )
+                }
+              })
+            }
+          })}
+        </> */}
+
+
+
+        {/* {meanings[0].definitions.map((item) => (
+            <>
+            <h1>TEST EXAMPLES</h1> 
+            <p>{item.example}</p>
+            </>
+          ))} */}
+
+
+
+        {meanings[0].definitions && (
           <ul>
             <h3>{t("Examples")}: </h3>
             {
               examplesInfo ? (
                 <>
-                  <p>{meanings[0].definitions[0].definition}</p>
+                  <p>{meanings[0].definitions[0].example}</p>
+
 
                   <button
                     className="mt-2 bg-yellow-600 py-1 rounded-sm w-[200px] text-white"
@@ -140,7 +171,10 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
               ) : (
                 <>
                   {meanings[0].definitions.map((item, index) => (
-                    <li key={index} className="p-2">{item.definition}</li>
+                    item.example && (
+
+                      <li key={index} className="p-2">{item.example}</li>
+                    )
                   ))}
                   <button
                     className="mt-2 bg-red-500 py-1 rounded-sm w-[200px] text-white"
