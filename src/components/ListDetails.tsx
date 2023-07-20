@@ -1,7 +1,8 @@
-import { IDefinitions, IPhonetics } from "@/types"
+import { IPhonetics } from "@/types"
 import { IMeaning } from "@/types"
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
 import { useState } from "react";
+import ReactAudioPlayer from 'react-audio-player';
 
 import { useTranslation } from 'react-i18next';
 
@@ -64,6 +65,11 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 {phonetics.map((phonetic, index) => (
                   <>
                     {phonetic.audio.length > 1 && (
+                      // <ReactAudioPlayer
+                      //   src={phonetics[index].audio}
+                      //   controls
+                      //   style={{ backgroundColor: '#f2f2f2'}}
+                      // />
                       <PlayCircleIcon className="w-6 h-full cursor-pointer" onClick={() => playAudio(index)} />
                     )}
                   </>
@@ -172,7 +178,6 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 <>
                   {meanings[0].definitions.map((item, index) => (
                     item.example && (
-
                       <li key={index} className="p-2">{item.example}</li>
                     )
                   ))}

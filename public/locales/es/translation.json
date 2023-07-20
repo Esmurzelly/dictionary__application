@@ -9,5 +9,16 @@
     "Hide": "Esconder",
     "Examples": "Ejemplos",
     "Synonyms": "Sinónimos",
-    "Antonyms": "Antonimos"
+    "Antonyms": "Antonimos",
+    "addToBookmark": "Agregar a los favoritos",
+    "removeFromBookmark": "Quitar de favoritos",
+    "PopularWord": "palabras populares",
+    "BookmarkedWord": "Palabras seleccionadas",
+    "MoveToBookmarks": "Ir a favoritos",
+    "HistoryRequests": "Buscar Historia",
+    "ClearHistory": "Borrar el historial",
+    "Bookmarks": "Favoritos",
+    "DeletedWords": "Palabras eliminadas",
+    "Delete": "Borrar",
+    "Add": "Agregar"
 }

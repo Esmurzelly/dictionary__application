@@ -127,15 +127,14 @@ const Main = () => {
                             onClick={() => handleAddFavouriteWord(keyWord)}
                             className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
                         >
-                            Добавить в избранное
+                            {t('addToBookmark')}
                         </button>
 
                         <button
-                            disabled={!result}
                             onClick={() => handleRemoveFavouriteWord(keyWord)}
                             className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
                         >
-                            Удалить из избранного
+                            {t('removeFromBookmark')}
                         </button>
                     </div>
                 </form>
@@ -152,7 +151,7 @@ const Main = () => {
 
             <Favourites updateData={updateData} />
 
-            <HistoryRequests arrWords={historyWords} />
+            <HistoryRequests updateData={updateData} arrWords={historyWords} />
         </div>
     )
 }

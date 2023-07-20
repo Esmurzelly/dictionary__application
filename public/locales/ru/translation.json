@@ -9,5 +9,17 @@
     "Hide": "Скрыть",
     "Examples": "Примеры использования",
     "Synonyms": "Синонимы",
-    "Antonyms": "Антонимы"
+    "Antonyms": "Антонимы",
+    "addToBookmark": "Добавить в избранное",
+    "removeFromBookmark": "Удалить из избранного",
+    "PopularWord": "Популярные слова",
+    "BookmarkedWord": "Избранные слова",
+    "MoveToBookmarks": "Перейти к избранным",
+    "HistoryRequests": "История поиска",
+    "ClearHistory": "Очистить историю",
+    "Bookmarks": "Избранные",
+    "DeletedWords": "Удаленные слова",
+    "Delete": "Удалить",
+    "Add": "Добавить"
 }
+

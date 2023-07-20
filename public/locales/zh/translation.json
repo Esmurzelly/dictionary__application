@@ -9,5 +9,16 @@
     "Hide": "隱藏",
     "Examples": "例子",
     "Synonyms": "同義詞",
-    "Antonyms": "反義詞"
+    "Antonyms": "反義詞",
+    "addToBookmark": "添加到收藏夾",
+    "removeFromBookmark": "從收藏夾中刪除",
+    "PopularWord": "流行詞",
+    "BookmarkedWord": "選詞",
+    "MoveToBookmarks": "轉到收藏夾",
+    "HistoryRequests": "搜索歷史記錄",
+    "ClearHistory": "清除歷史記錄",
+    "Bookmarks": "收藏夾",
+    "DeletedWords": "刪除的單詞",
+    "Delete": "刪除",
+    "Add": "添加"
 }
