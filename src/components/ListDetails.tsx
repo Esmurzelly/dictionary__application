@@ -127,97 +127,99 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
         </div>
 
 
-
-
-
-        {/* <>
-          {meanings.map((item) => {
-            {
-              console.log('item.definitions', item.definitions, typeof item.definitions)
-              item.definitions.map((item2) => {
-                {
-                  console.log('item2', item2, typeof item2)
-                  item2.example && (
-                    console.log(item2.example, typeof item2.example)
-                  )
-                }
-              })
-            }
-          })}
-        </> */}
-
-
-
-        {/* {meanings[0].definitions.map((item) => (
+        <div>
+          <h3>{t("Examples")}: </h3>
+          {examplesInfo ? (
+            meanings.map((meaning, meaningIndex) => (
+              <div key={meaningIndex}>
+                <ul>
+                  {meaningIndex === 0 && meaning.definitions[0]?.example && (
+                    <>
+                      <li>
+                        <p>{meaning.definitions[0].example}</p>
+                      </li>
+                      <button
+                        className="mt-2 bg-yellow-600 py-1 rounded-sm w-[200px] text-white"
+                        onClick={() => setExamplesInfo(false)}
+                      >
+                        {t("More")}
+                      </button>
+                    </>
+                  )}
+                </ul>
+              </div>
+            ))
+          ) : (
             <>
-            <h1>TEST EXAMPLES</h1> 
-            <p>{item.example}</p>
-            </>
-          ))} */}
-
-
-
-        {meanings[0].definitions && (
-          <ul>
-            <h3>{t("Examples")}: </h3>
-            {
-              examplesInfo ? (
-                <>
-                  <p>{meanings[0].definitions[0].example}</p>
-
-
-                  <button
-                    className="mt-2 bg-yellow-600 py-1 rounded-sm w-[200px] text-white"
-                    onClick={() => setExamplesInfo(false)}
-
-                  >
-                    {t("More")}
-                  </button>
-                </>
-              ) : (
-                <>
-                  {meanings[0].definitions.map((item, index) => (
-                    item.example && (
-                      <li key={index} className="p-2">{item.example}</li>
-                    )
-                  ))}
-                  <button
-                    className="mt-2 bg-red-500 py-1 rounded-sm w-[200px] text-white"
-                    onClick={() => setExamplesInfo(true)}
-
-                  >
-                    {t("Hide")}
-                  </button>
-                </>
-              )
-            }
-          </ul>
-        )}
-
-        {meanings[0].synonyms.length > 0 && (
-          <div>
-            <h2 className="font-bold">{t('Synonyms')}: </h2>
-            <div className="grid grid-cols-3">
-              {meanings[0].synonyms.map((item, index) => (
-                <p className="cursor-pointer" key={index} onClick={() => updateData(item)}>
-                  {item}
-                </p>
+              {meanings.map((meaning, meaningIndex) => (
+                <div key={meaningIndex}>
+                  <ul>
+                    {meaning.definitions.map((definition, definitionIndex) => (
+                      <div key={definitionIndex}>
+                        {definition.example && (
+                          <li>
+                            <p className="p-2">{definition.example}</p>
+                          </li>
+                        )}
+                      </div>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </div>
+              <button
+                className="mt-2 bg-red-500 py-1 rounded-sm w-[200px] text-white"
+                onClick={() => setExamplesInfo(true)}
+              >
+                {t("Hide")}
+              </button>
+            </>
+          )}
+        </div>
 
-          </div>
-        )}
 
-        {meanings[0].antonyms.length > 0 && (
-          <div>
-            <h2 className="font-bold">{t('Antonyms')}: </h2>
-            {meanings[0].antonyms.map((item, index) => (
-              <p className="cursor-pointer" key={index} onClick={() => updateData(item)}>
-                {item}
-              </p>
-            ))}
-          </div>
-        )}
+
+        <div>
+          <h2 className="font-bold">{t('Synonyms')}: </h2>
+          {meanings.map((meaning, meaningIndex) => (
+            meaning.synonyms.length > 1 && (  
+              <div key={meaningIndex}>
+                <div className="grid grid-cols-3">
+                  {meaning.synonyms.map((synonym, synonymIndex) => (
+                    <p
+                      className="cursor-pointer"
+                      key={synonymIndex}
+                      onClick={() => updateData(synonym)}
+                    >
+                      {synonym}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )
+
+          ))}
+        </div>
+
+        <div>
+          <h2 className="font-bold">{t('Antonyms')}: </h2>
+          {meanings.map((meaning, meaningIndex) => (
+            meaning.antonyms.length > 1 && (
+              <div key={meaningIndex}>
+                <div className="grid grid-cols-3">
+                  {meaning.antonyms.map((antonym, antonymIndex) => (
+                    <p
+                      className="cursor-pointer"
+                      key={antonymIndex}
+                      onClick={() => updateData(antonym)}
+                    >
+                      {antonym}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )
+          ))}
+        </div>
       </div>
     </div>
   )

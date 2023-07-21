@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import NavBar from '@/components/NavBar';
 import { addFavouriteWord, removeFavouriteWord } from '@/store/favouritesWords';
-import PopularWords from '@/components/PopularWords';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,11 +8,7 @@ import { useTranslation } from 'react-i18next';
 import useMediaQuery from '@/hook/useMediaQuery';
 
 
-
-type Props = {
-}
-
-const Bookmarks = (props: Props) => {
+const Bookmarks = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
     const [deletedItems, setDeletedItems] = useState(
         ['adam', 'bert']
@@ -149,10 +144,11 @@ const Bookmarks = (props: Props) => {
 
                                 {historyWords.map((item: string) => (
                                     <div className='flex gap-3 align-top justify-between'>
-                                        <button
+                                         <span>{item}</span>
+                                         <button
                                             className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
                                             onClick={() => handleAddFavouriteWord(item)}
-                                        >{t('Add')}</button> <span>{item}</span>
+                                        >{t('Add')}</button>
                                     </div>
                                 ))}
                             </div>
