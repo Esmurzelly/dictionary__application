@@ -2,7 +2,7 @@ import { IPhonetics } from "@/types"
 import { IMeaning } from "@/types"
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
 import { useState } from "react";
-import ReactAudioPlayer from 'react-audio-player';
+import { motion } from 'framer-motion';
 
 import { useTranslation } from 'react-i18next';
 
@@ -36,8 +36,17 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
     });
   };
 
+
   return (
-    <div className="mt-5">
+    <motion.div className="mt-5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      variants={{
+        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0 }
+      }}>
       <div className="flex flex-col justify-start gap-5">
         <div className="flex flex-col">
           <h3>{t("Word")}</h3>
@@ -65,11 +74,6 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 {phonetics.map((phonetic, index) => (
                   <>
                     {phonetic.audio.length > 1 && (
-                      // <ReactAudioPlayer
-                      //   src={phonetics[index].audio}
-                      //   controls
-                      //   style={{ backgroundColor: '#f2f2f2'}}
-                      // />
                       <PlayCircleIcon className="w-6 h-full cursor-pointer" onClick={() => playAudio(index)} />
                     )}
                   </>
@@ -96,7 +100,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                     <li className="p-1">
                       <p>{meaning.definitions[0].definition}</p>
                       <button
-                        className="mt-2 bg-yellow-600 py-1 rounded-sm w-[200px] text-white"
+                        className="mt-2 bg-moonstore py-1 rounded-sm w-[200px] text-white"
                         onClick={() => handleToggleExpand(index)}
                       >
                         {t("More")}
@@ -113,7 +117,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                         </li>
                       ))}
                       <button
-                        className="mt-2 bg-red-500 py-1 rounded-sm w-[200px] text-white"
+                        className="mt-2 bg-chilli_red py-1 rounded-sm w-[200px] text-white"
                         onClick={() => handleToggleExpand(index)}
                       >
                         {t("Hide")}
@@ -139,7 +143,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                         <p>{meaning.definitions[0].example}</p>
                       </li>
                       <button
-                        className="mt-2 bg-yellow-600 py-1 rounded-sm w-[200px] text-white"
+                        className="mt-2 bg-moonstore py-1 rounded-sm w-[200px] text-white"
                         onClick={() => setExamplesInfo(false)}
                       >
                         {t("More")}
@@ -167,7 +171,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
                 </div>
               ))}
               <button
-                className="mt-2 bg-red-500 py-1 rounded-sm w-[200px] text-white"
+                className="mt-2 bg-chilli_red py-1 rounded-sm w-[200px] text-white"
                 onClick={() => setExamplesInfo(true)}
               >
                 {t("Hide")}
@@ -178,10 +182,12 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
 
 
 
-        <div>
+        <div
+          className="bg-orange rounded-lg p-2"
+        >
           <h2 className="font-bold">{t('Synonyms')}: </h2>
           {meanings.map((meaning, meaningIndex) => (
-            meaning.synonyms.length > 1 && (  
+            meaning.synonyms.length > 1 && (
               <div key={meaningIndex}>
                 <div className="grid grid-cols-3">
                   {meaning.synonyms.map((synonym, synonymIndex) => (
@@ -200,7 +206,8 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           ))}
         </div>
 
-        <div>
+        <div
+        className="bg-chilli_red rounded-lg p-2">
           <h2 className="font-bold">{t('Antonyms')}: </h2>
           {meanings.map((meaning, meaningIndex) => (
             meaning.antonyms.length > 1 && (
@@ -221,7 +228,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -32,7 +32,7 @@ const Favourites = ({ updateData }: Props) => {
       </div>
       {showFavouriteWords && (
         <div>
-          <ul className='grid grid-cols-3'>
+          <ul className='grid grid-cols-3 mb-3'>
             {favouriteWords.map((item: string, index: number) => (
               <li
                 key={index}
@@ -43,7 +43,7 @@ const Favourites = ({ updateData }: Props) => {
               </li>
             ))}
           </ul>
-          <Link className='bg-blue-500 w-[170px] py-1 px-2 rounded-sm text-white mt-3' to={`/bookmarks`}>
+          <Link className='bg-moonstore w-[170px] p-2 rounded-sm text-white' to={`/bookmarks`}>
             {t('MoveToBookmarks')}
           </Link>
         </div>

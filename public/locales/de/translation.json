@@ -20,5 +20,12 @@
     "Bookmarks": "Favoriten",
     "DeletedWords": "Gelöschte Wörter",
     "Delete": "Löschen",
-    "Add": "Hinzufügen"
+    "Add": "Hinzufügen",
+    "Enter_word": "Geben Sie ein Wort ein",
+    "Form_name": "Name",
+    "Form_email": "Email",
+    "Form_message": "Nachricht",
+    "Send": "Schicken",
+    "Back": "Zurück",
+    "Not_Found": "Seite nicht gefunden"
 }

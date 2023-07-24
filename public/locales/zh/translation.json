@@ -20,5 +20,12 @@
     "Bookmarks": "收藏夾",
     "DeletedWords": "刪除的單詞",
     "Delete": "刪除",
-    "Add": "添加"
+    "Add": "添加",
+    "Enter_word": "输入一个词",
+    "Form_name": "姓名",
+    "Form_email": "Email",
+    "Form_message": "信息",
+    "Send": "发送",
+    "Back": "后退",
+    "Not_Found": "找不到网页"
 }

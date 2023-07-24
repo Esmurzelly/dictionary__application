@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { addHistoryWord, clearHistoryWord } from '@/store/historyRequests';
+import { useDispatch } from 'react-redux';
+import { clearHistoryWord } from '@/store/historyRequests';
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid';
 import { ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
@@ -12,17 +12,14 @@ type Props = {
 }
 
 const HistoryRequests = ({ arrWords, updateData }: Props) => {
-  const historyWords = useSelector((state: any) => state.history.history);
   const [showHistoryWord, setShowHistoryWord] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
-  const addHistoryWordFunction = (item: string) => {
-    dispatch(addHistoryWord(item))
-  }
   const clearHistoryWordFunction = () => {
     dispatch(clearHistoryWord())
+    setShowHistoryWord(false);
   }
 
   const handleSwitchWord = () => {
@@ -51,20 +48,13 @@ const HistoryRequests = ({ arrWords, updateData }: Props) => {
 
           </div>
           <button
-            className='bg-blue-500 w-[170px] py-1 px-2 rounded-sm text-white mt-3'
+            className='bg-chilli_red w-[170px] py-1 px-2 rounded-sm text-white mt-3'
             onClick={() => clearHistoryWordFunction()}
           >
             {t('ClearHistory')}
           </button>
         </div>
-
-
       )}
-
-
-
-
-
     </div>
   )
 }

@@ -20,6 +20,14 @@
     "Bookmarks": "Избранные",
     "DeletedWords": "Удаленные слова",
     "Delete": "Удалить",
-    "Add": "Добавить"
+    "Add": "Добавить",
+    "Enter_word": "Введите слово",
+    "Form_name": "Имя",
+    "Form_email": "Email",
+    "Form_message": "Сообщение",
+    "Send": "Отправить",
+    "Back": "Назад",
+    "Not_Found": "Страница не найдена"
 }
+
 

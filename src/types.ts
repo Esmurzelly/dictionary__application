@@ -23,3 +23,16 @@ export interface IResult {
     phonetics: Array<IPhonetics>, 
     meanings: Array<IMeaning>,
 }
+
+
+export interface IFormInput {
+    fullName: string;
+    email: string;
+    message: string;
+    handleSubmit: () => void
+}
+
+export interface IStatus {
+    success: boolean,
+    message: string,
+}

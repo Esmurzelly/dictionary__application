@@ -16,6 +16,13 @@ export default {
         
         "blue-light": "#b6fbff",
         "blue-meduim": "#83a4d4",
+
+        "dark_green": "#042A2B",
+        "moonstore": "#5EB1BF",
+        "light_cyan": "#CDEDF6",
+        "orange": "#EF7B45",
+        "chilli_red": "#D84727",
+
       },
       fontFamily: {
         'sans': 'Lato, sans-serif',
