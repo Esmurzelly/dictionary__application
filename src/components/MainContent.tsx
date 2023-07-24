@@ -44,8 +44,7 @@ const MainContent = () => {
 
             addHistoryWordFunction(keyWord)
 
-            console.log('res data ', res.data);
-            console.log('res data [0] ', res.data[0]);
+
         } catch (error) {
             console.log(error);
             toast.error(`Введенное слово "${keyWord}" является некорректным`, {
@@ -71,7 +70,6 @@ const MainContent = () => {
 
         const res = await axios.get(`${api}/${value}`);
         setResult(res.data[0]);
-        console.log('res data [0] changed ', res.data[0]);
     }
 
     const handleCopy = async (text: string) => {

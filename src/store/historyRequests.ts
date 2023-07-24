@@ -4,8 +4,19 @@ interface IHistoryRequests {
     history: Array<string>
 }
 
-const initialState:IHistoryRequests = {
-    history: JSON.parse(localStorage.getItem('historyWords') || '')
+const storedHistory = localStorage.getItem('historyWords');
+let parsedHistory: Array<string> = [];
+
+if (storedHistory) {
+    try {
+      parsedHistory = JSON.parse(storedHistory);
+    } catch (error) {
+      console.error('Ошибка при разборе JSON:', error);
+    }
+  }
+
+  const initialState: IHistoryRequests = {
+    history: parsedHistory,
 };
 
 

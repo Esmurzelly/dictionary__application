@@ -29,7 +29,6 @@ const Bookmarks = () => {
 
     function handleOnDrop(e: React.DragEvent) {
         const widgetType = e.dataTransfer.getData("widgetType") as string;
-        console.log('widgetType', widgetType);
         dispatch(addFavouriteWord(widgetType));
     }
 
