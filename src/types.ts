@@ -31,8 +31,3 @@ export interface IFormInput {
     message: string;
     handleSubmit: () => void
 }
-
-export interface IStatus {
-    success: boolean,
-    message: string,
-}

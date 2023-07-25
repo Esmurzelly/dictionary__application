@@ -13,7 +13,6 @@ import { addFavouriteWord, removeFavouriteWord } from '@/store/favouritesWords';
 import { addHistoryWord } from '@/store/historyRequests';
 import HistoryRequests from '@/components/HistoryRequests';
 
-
 import 'react-toastify/dist/ReactToastify.css';
 
 import { toast } from 'react-toastify';
@@ -34,8 +33,8 @@ const MainContent = () => {
     }
 
     const { t } = useTranslation();
-
-    const api = "https://api.dictionaryapi.dev/api/v2/entries/en";
+    
+    const api = import.meta.env.VITE_REACT_API_URL;
 
     const handleSearch = async () => {
         try {
@@ -122,30 +121,32 @@ const MainContent = () => {
                         visible: { opacity: 1, x: 0 }
                     }}
                 >
-                    <button
-                        type='submit'
-                        onClick={handleSearch}
-                        className='bg-moonstore w-[100px] py-1 px-2 rounded-sm text-sm text-white'
-                    >
-                        {t('Search')}
+                    <div className='flex flex-row basis-full gap-2'>
+                        <button
+                            type='submit'
+                            onClick={handleSearch}
+                            className='bg-moonstore w-[33.3%] py-1 px-2 rounded-sm text-sm text-white'
+                        >
+                            {t('Search')}
+                        </button>
 
-                    </button>
+                        <button
+                            disabled={!result}
+                            onClick={handleClear}
+                            className='bg-chilli_red w-[33.3%] py-1 px-2 rounded-sm text-sm text-white'
+                        >
+                            {t('Clear')}
+                        </button>
 
-                    <button
-                        disabled={!result}
-                        onClick={handleClear}
-                        className='bg-chilli_red w-[100px] py-1 px-2 rounded-sm text-sm text-white'
-                    >
-                        {t('Clear')}
-                    </button>
+                        <button
+                            disabled={!result}
+                            onClick={() => handleCopy(keyWord)}
+                            className='bg-orange w-[33.3%] py-1 px-2 rounded-sm text-sm text-white'
+                        >
+                            {t('Copy')}
+                        </button>
+                    </div>
 
-                    <button
-                        disabled={!result}
-                        onClick={() => handleCopy(keyWord)}
-                        className='bg-orange w-[100px] py-1 px-2 rounded-sm text-sm text-white'
-                    >
-                        {t('Copy')}
-                    </button>
 
                     <button
                         disabled={!result}

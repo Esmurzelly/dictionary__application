@@ -1,7 +1,7 @@
 import { IPhonetics } from "@/types"
 import { IMeaning } from "@/types"
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from 'framer-motion';
 
 import { useTranslation } from 'react-i18next';
@@ -72,11 +72,11 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
             <div>
               <ul>
                 {phonetics.map((phonetic, index) => (
-                  <>
+                  <React.Fragment key={index}>
                     {phonetic.audio.length > 1 && (
                       <PlayCircleIcon className="w-6 h-full cursor-pointer" onClick={() => playAudio(index)} />
                     )}
-                  </>
+                  </React.Fragment>
                 ))}
               </ul>
             </div>
@@ -87,7 +87,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           <h3>{t("Definitions")}: </h3>
           <ul>
             {meanings.map((meaning, index) => (
-              <div className="flex flex-col gap-1">
+              <div key={index} className="flex flex-col gap-1">
                 <li
                   key={index}
                   className="font-bold mt-4"

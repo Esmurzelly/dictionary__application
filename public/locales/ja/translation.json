@@ -23,9 +23,11 @@
     "Add": "「追加」",
     "Enter_word": "単語を入力してください",
     "Form_name": "名前",
-    "Form_email": "Email",
+    "Form_email": "Eメール",
     "Form_message": "メッセージ",
     "Send": "送信",
     "Back": "戻る",
-    "Not_Found": "ページが見つかりません"
+    "Not_Found": "ページが見つかりません",
+    "MesssageOk": "メッセージは正常に送信されました",
+    "MessageError": "問題が発生しました。後でもう一度お試しください。"
 }

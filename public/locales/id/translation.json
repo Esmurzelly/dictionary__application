@@ -23,9 +23,11 @@
     "Add": "Tambah",
     "Enter_word": "Masukkan kata",
     "Form_name": "Nama",
-    "Form_email": "Email",
+    "Form_email": "Surel",
     "Form_message": "Pesan",
     "Send": "Mengirim",
     "Back": "Kembali",
-    "Not_Found": "halaman tidak ditemukan"
+    "Not_Found": "halaman tidak ditemukan",
+    "MessageOk": "Pesan Anda berhasil dikirim",
+    "MessageError": "Ada yang tidak beres, silakan coba lagi nanti"
 }

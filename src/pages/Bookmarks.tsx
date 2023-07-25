@@ -9,6 +9,7 @@ import { addFavouriteWord, removeFavouriteWord } from '@/store/favouritesWords';
 import NavBar from '@/components/NavBar';
 
 import { motion } from 'framer-motion'
+import Footer from '@/components/Footer';
 
 
 const Bookmarks = () => {
@@ -278,6 +279,8 @@ const Bookmarks = () => {
                     {t('Back')}
                 </motion.button>
             </div>
+
+            <Footer />
         </div>
     )
 }

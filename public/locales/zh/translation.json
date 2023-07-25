@@ -23,9 +23,11 @@
     "Add": "添加",
     "Enter_word": "输入一个词",
     "Form_name": "姓名",
-    "Form_email": "Email",
+    "Form_email": "电子邮件",
     "Form_message": "信息",
     "Send": "发送",
     "Back": "后退",
-    "Not_Found": "找不到网页"
+    "Not_Found": "找不到网页",
+    "MessageOk": "您的消息发送成功",
+    "MessageError": "出现问题，请稍后重试"
 }

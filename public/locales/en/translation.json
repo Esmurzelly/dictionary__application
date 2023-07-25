@@ -27,5 +27,8 @@
     "Form_message": "Message",
     "Send": "Send",
     "Back": "Back",
-    "Not_Found": "Page is not found"
+    "Not_Found": "Page is not found",
+    "MesssageOk": "Message sent successfully",
+    "MessageError":"Something went wrong, please try again later"
+
 }

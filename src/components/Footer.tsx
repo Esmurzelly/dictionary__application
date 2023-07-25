@@ -1,7 +1,7 @@
 import github from '@/assets/logo/github.png';
 import telegram from '@/assets/logo/telegram.png';
 import instagram from '@/assets/logo/instagram.png';
-import appLogo from '@/assets/app__logo_test.png'
+import appLogo from '@/assets/favicon.svg'
 import { motion } from 'framer-motion'
 
 const Footer = () => {

@@ -33,17 +33,17 @@ const NavBar = () => {
 
   return (
     <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      variants={{
+        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0 }
+      }}
       className='flex flex-row justify-between gap-4 mb-3 items-start max-w-7xl mx-auto'>
-      <motion.div className='text-black flex items-center gap-2'
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        variants={{
-          hidden: { opacity: 0, x: -100 },
-          visible: { opacity: 1, x: 0 }
-        }}
-      >
+
+      <div className='text-black flex flex-wrap items-center gap-2'>
         <span onClick={() => changeLanguage("ru")} className="cursor-pointer fi fi-ru"></span>
         <span onClick={() => changeLanguage("en")} className="cursor-pointer fi fi-gb"></span>
         <span onClick={() => changeLanguage("de")} className="cursor-pointer fi fi-de"></span>
@@ -51,7 +51,7 @@ const NavBar = () => {
         <span onClick={() => changeLanguage("ko")} className="cursor-pointer fi fi-kr"></span>
         <span onClick={() => changeLanguage("ja")} className="cursor-pointer fi fi-jp"></span>
         <span onClick={() => changeLanguage("zh")} className="cursor-pointer fi fi-cn"></span>
-      </motion.div>
+      </div>
       <ChangeThemeButton onHandleSwitchTheme={handleSwitchTheme} />
     </motion.div>
   )

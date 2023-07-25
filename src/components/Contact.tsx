@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
 import { IFormInput } from '@/types';
-import { IStatus } from '@/types';
 
 import contactImg from '@/assets/contact-img.svg';
 
@@ -22,7 +21,6 @@ const Contact = () => {
 
     const [formDetails, setFormDetails] = useState(formInitialDetails);
     const [buttonText, setButtonText] = useState('Send');
-    const [status, setStatus] = useState<IStatus>();
 
     const { register, formState: { errors }, handleSubmit, } = useForm<IFormInput>();
 
@@ -36,8 +34,8 @@ const Contact = () => {
 
     const handleTypeSubmit = async () => {
         setButtonText('Sending...');
-
-        let response = await fetch('https://reinvented-distinct-bead.glitch.me/contact', {
+        
+        let response = await fetch(import.meta.env.VITE_REACT_BASE_URL, {
             method: "POST",
             headers: {
                 'Content-Type': 'Application/json;charset=utf-8',
@@ -50,11 +48,7 @@ const Contact = () => {
         setFormDetails(formInitialDetails);
 
         if (result.code === 200) {
-            setStatus({
-                success: true,
-                message: ' Message sent successfully',
-            })
-            toast(`Message was sent ok`, {
+            toast(t('MesssageOk'), {
                 position: 'bottom-left',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -65,9 +59,7 @@ const Contact = () => {
             })
 
         } else {
-            setStatus({ success: false, message: "Smth went wrong, please try again later." });
-
-            toast.error(`${status?.message}`, {
+            toast.error(t('MessageError'), {
                 position: 'bottom-left',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -110,7 +102,7 @@ const Contact = () => {
                                 className='w-full outline-none rounded-md placeholder:text-gray text-white bg-gray-700 p-2'
                             />
                             {errors.fullName?.type === 'required' && (
-                                <p role='alert'>Name is required</p>
+                                <p className='text-chilli_red' role='alert'>Name is required</p>
                             )}
 
                             <input
@@ -125,7 +117,7 @@ const Contact = () => {
                                 className='w-full outline-none rounded-md placeholder:text-gray text-white bg-gray-700 p-2'
                             />
                             {errors.email?.type === 'required' && (
-                                <p role='alert'>Email is required</p>
+                                <p className='text-chilli_red' role='alert'>Email is required</p>
                             )}
 
                             <textarea
@@ -140,7 +132,7 @@ const Contact = () => {
                                 className='w-full resize-none outline-none rounded-md placeholder:text-gray text-white bg-gray-700 p-2 lg:h-[200px]'
                             ></textarea>
                             {errors.message?.type === 'required' && (
-                                <p role='alert'>Message is required</p>
+                                <p className='text-chilli_red' role='alert'>Message is required</p>
                             )}
                         </div>
                         <button

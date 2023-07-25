@@ -23,9 +23,11 @@
     "Add": "추가",
     "Enter_word": "단어를 입력하세요",
     "Form_name": "이름",
-    "Form_email": "Email",
+    "Form_email": "이메일",
     "Form_message": "메시지",
     "Send": "보내다",
     "Back": "뒤쪽에",
-    "Not_Found": "페이지를 찾을 수 없음"
+    "Not_Found": "페이지를 찾을 수 없음",
+    "MesssageOk": "메시지가 성공적으로 전송되었습니다",
+    "MessageError": "문제가 발생했습니다. 나중에 다시 시도하십시오."
 }

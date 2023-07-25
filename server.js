@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 const contactEmail = nodemailer.createTransport({
     service:'gmail',
     auth: {
-        user: 'adamsuper148@gmail.com',
-        pass: 'nkhgbdeaxqbbmcxp',
+        user: import.meta.env.VITE_REACT_EMAIL,
+        pass: import.meta.env.nkhgbdeaxqbbmcxp,
     },
     tls: {
         rejectUnauthorized: false,
@@ -48,7 +48,7 @@ router.post('/contact', (req, res) => {
 
     const mail = {
         from: name,
-        to: 'adamsuper148@gmail.com',
+        to: import.meta.env.VITE_REACT_EMAIL,
         subject: `New Message From ${name}`,
         html: `
             <p>Name: ${name}</p>

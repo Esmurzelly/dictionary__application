@@ -27,5 +27,7 @@
     "Form_message": "Nachricht",
     "Send": "Schicken",
     "Back": "Zurück",
-    "Not_Found": "Seite nicht gefunden"
+    "Not_Found": "Seite nicht gefunden",
+    "MesssageOk": "Ihre Nachricht wurde erfolgreich gesendet",
+    "MessageError":"Es ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal"
 }
