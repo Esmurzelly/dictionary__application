@@ -34,7 +34,7 @@ const MainContent = () => {
 
     const { t } = useTranslation();
     
-    const api = import.meta.env.VITE_REACT_API_URL;
+    const api = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
     const handleSearch = async () => {
         try {
