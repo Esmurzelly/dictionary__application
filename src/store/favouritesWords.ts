@@ -1,19 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+const removeDublicates = (array: string[]):string[] => {
+    return [...new Set(array)]
+}
+
+
 interface IFavourites {
     favourites: Array<string>
 }
 
 const initialState: IFavourites = {
-    favourites: JSON.parse(localStorage.getItem('favouriteWords') || '["love", "brother", "come"]')
+    favourites: removeDublicates(JSON.parse(localStorage.getItem('favouriteWords') || '[]'))
 }
+
+
 
 const favouritesSlice = createSlice({
     name: 'favourites',
     initialState,
     reducers: {
         addFavouriteWord(state, action: PayloadAction<string>) {
-            state.favourites.push(action.payload)
+            state.favourites.push(action.payload);
+            state.favourites = removeDublicates(state.favourites);
             localStorage.setItem('favouriteWords', JSON.stringify(state.favourites));
         },
         removeFavouriteWord(state, action: PayloadAction<number>) {

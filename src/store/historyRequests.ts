@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+const removeDublicates = (array: string[]):string[] => {
+  return [...new Set(array)]
+}
+
+
 interface IHistoryRequests {
     history: Array<string>
 }
@@ -16,7 +21,7 @@ if (storedHistory) {
   }
 
   const initialState: IHistoryRequests = {
-    history: parsedHistory,
+    history: removeDublicates(parsedHistory),
 };
 
 
@@ -26,6 +31,7 @@ const historySlice = createSlice({
     reducers: {
         addHistoryWord(state, action:PayloadAction<string>) {
             state.history.push(action.payload);
+            state.history = removeDublicates(state.history);
             localStorage.setItem('historyWords', JSON.stringify(state.history));
         },
         clearHistoryWord(state) {
