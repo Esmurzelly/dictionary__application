@@ -2,7 +2,6 @@ import { IPhonetics } from "@/types"
 import { IMeaning } from "@/types"
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
 import React, { useState } from "react";
-import { motion } from 'framer-motion';
 
 import { useTranslation } from 'react-i18next';
 
@@ -38,15 +37,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
 
 
   return (
-    <motion.div className="mt-5"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      variants={{
-        hidden: { opacity: 0, x: -100 },
-        visible: { opacity: 1, x: 0 }
-      }}>
+    <div className="mt-5">
       <div className="flex flex-col justify-start gap-5">
         <div className="flex flex-col">
           <h3>{t("Word")}</h3>
@@ -228,7 +219,7 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

@@ -20,7 +20,7 @@ const favouritesSlice = createSlice({
     initialState,
     reducers: {
         addFavouriteWord(state, action: PayloadAction<string>) {
-            state.favourites.push(action.payload);
+            state.favourites.push(action.payload.toLowerCase());
             state.favourites = removeDublicates(state.favourites);
             localStorage.setItem('favouriteWords', JSON.stringify(state.favourites));
         },

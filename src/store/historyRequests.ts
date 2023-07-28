@@ -30,7 +30,7 @@ const historySlice = createSlice({
     initialState,
     reducers: {
         addHistoryWord(state, action:PayloadAction<string>) {
-            state.history.push(action.payload);
+            state.history.push(action.payload.toLowerCase());
             state.history = removeDublicates(state.history);
             localStorage.setItem('historyWords', JSON.stringify(state.history));
         },
