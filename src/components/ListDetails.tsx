@@ -171,53 +171,48 @@ const ListDetails = ({ word, phonetics, meanings, updateData }: Props) => {
           )}
         </div>
 
+        {meanings.map((meaning, meaningIndex) => (
+          meaning.synonyms.length > 1 && (
+            <div className="bg-orange rounded-lg p-2" key={meaningIndex}>
+              <h2 className="font-bold">{t('Synonyms')}: </h2>
 
-
-        <div
-          className="bg-orange rounded-lg p-2"
-        >
-          <h2 className="font-bold">{t('Synonyms')}: </h2>
-          {meanings.map((meaning, meaningIndex) => (
-            meaning.synonyms.length > 1 && (
-              <div key={meaningIndex}>
-                <div className="grid grid-cols-3">
-                  {meaning.synonyms.map((synonym, synonymIndex) => (
-                    <p
-                      className="cursor-pointer"
-                      key={synonymIndex}
-                      onClick={() => updateData(synonym)}
-                    >
-                      {synonym}
-                    </p>
-                  ))}
-                </div>
+              <div className="grid grid-cols-3">
+                {meaning.synonyms.map((synonym, synonymIndex) => (
+                  <p
+                    className="cursor-pointer"
+                    key={synonymIndex}
+                    onClick={() => updateData(synonym)}
+                  >
+                    {synonym}
+                  </p>
+                ))}
               </div>
-            )
+            </div>
+          )
+        ))}
 
-          ))}
-        </div>
-
-        <div
-        className="bg-chilli_red rounded-lg p-2">
-          <h2 className="font-bold">{t('Antonyms')}: </h2>
-          {meanings.map((meaning, meaningIndex) => (
-            meaning.antonyms.length > 1 && (
-              <div key={meaningIndex}>
-                <div className="grid grid-cols-3">
-                  {meaning.antonyms.map((antonym, antonymIndex) => (
-                    <p
-                      className="cursor-pointer"
-                      key={antonymIndex}
-                      onClick={() => updateData(antonym)}
-                    >
-                      {antonym}
-                    </p>
-                  ))}
-                </div>
+        {meanings.map((meaning, meaningIndex) => (
+          meaning.antonyms.length > 1 && (
+            <div
+              className="bg-chilli_red rounded-lg p-2"
+              key={meaningIndex}
+            >
+              <h2 className="font-bold">{t('Antonyms')}: </h2>
+              <div className="grid grid-cols-3">
+                {meaning.antonyms.map((antonym, antonymIndex) => (
+                  <p
+                    className="cursor-pointer"
+                    key={antonymIndex}
+                    onClick={() => updateData(antonym)}
+                  >
+                    {antonym}
+                  </p>
+                ))}
               </div>
-            )
-          ))}
-        </div>
+            </div>
+          )
+        ))}
+
       </div>
     </div>
   )

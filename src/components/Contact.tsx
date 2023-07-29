@@ -9,7 +9,6 @@ import { IFormInput } from '@/types';
 
 import contactImg from '@/assets/contact-img.svg';
 
-
 const Contact = () => {
     const formInitialDetails = {
         fullName: '',
@@ -31,6 +30,8 @@ const Contact = () => {
             [category]: value,
         });
     };
+    
+
 
     const handleTypeSubmit = async () => {
         setButtonText('Sending...');
@@ -143,8 +144,8 @@ const Contact = () => {
                         </button>
                     </form>
                 </div>
+                
             </div>
-
         </motion.div>
     )
 }

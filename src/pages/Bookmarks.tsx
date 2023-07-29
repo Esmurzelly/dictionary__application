@@ -11,6 +11,8 @@ import NavBar from '@/components/NavBar';
 import { motion } from 'framer-motion'
 import Footer from '@/components/Footer';
 
+import { TrashIcon, PlusCircleIcon } from '@heroicons/react/24/solid'
+
 
 const Bookmarks = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
@@ -101,7 +103,11 @@ const Bookmarks = () => {
                                 </button>
 
                                 {deletedItems.map((item) => (
-                                    <div className="flex gap-3 align-top justify-between">
+                                    <div 
+                                        className="flex gap-3 align-top justify-between"
+                                        draggable
+                                        onDragStart={(e) => handleOnDrag(e, `${item}`)}
+                                    >
                                         <span>{item}</span>
                                         <button
                                             className='bg-blue-500 w-[100px] py-1 px-2 rounded-sm text-white'
@@ -167,48 +173,22 @@ const Bookmarks = () => {
                         <div
                             className='grid grid-cols-2 grid-rows-1'
                         >
-                            <motion.div className='flex flex-col gap-1'
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                variants={{
-                                    hidden: { opacity: 0, x: -100 },
-                                    visible: { opacity: 1, x: 0 }
-                                }}>
+                            <div className='flex flex-col gap-1'>
                                 <h1>{t('Bookmarks')}</h1>
 
                                 {favouriteWords.map((item: string) => (
-                                    <motion.div
-                                        className='flex gap-3 align-top justify-between'
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        viewport={{ once: true,  }}
-                                        transition={{ duration: 0.5, delay: 0.2 }}
-                                        variants={{
-                                            hidden: { opacity: 0, x: -100 },
-                                            visible: { opacity: 1, x: 0 }
-                                        }}
-                                    >
+                                    <div className='flex gap-3 align-top justify-between'>
                                         <span>{item}</span>
                                         <button
-                                            className='bg-chilli_red w-[100px] py-1 px-2 rounded-sm text-white'
+                                            className='bg-chilli_red min-w-[20px] py-1 px-2 rounded-sm text-white'
                                             onClick={() => handleRemoveFavouriteWord(item)}
-                                        >{t('Delete')}</button>
-                                    </motion.div>
+                                        ><TrashIcon width={20} /> </button>
+                                    </div>
 
                                 ))}
-                            </motion.div>
+                            </div>
 
-                            <motion.div className='flex flex-col items-end gap-1'
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                variants={{
-                                    hidden: { opacity: 0, x: 100 },
-                                    visible: { opacity: 1, x: 0 }
-                                }}>
+                            <div className='flex flex-col items-end gap-1'>
                                 <h1>{t('DeletedWords')}</h1>
                                 <button
                                     className='bg-orange w-[100px] py-1 px-2 rounded-sm text-white'
@@ -218,7 +198,7 @@ const Bookmarks = () => {
 
                                 {deletedItems.map((item) => (
                                     <motion.div
-                                        className="flex gap-3 align-top justify-between"
+                                        className="flex gap-3 justify-between"
                                         initial="hidden"
                                         whileInView="visible"
                                         viewport={{ once: true, amount: 0.5 }}
@@ -230,39 +210,29 @@ const Bookmarks = () => {
                                     >
                                         <span>{item}</span>
                                         <button
-                                            className='bg-moonstore w-[100px] py-1 px-2 rounded-sm text-white'
+                                            className='bg-moonstore min-w-[20px] py-1 px-2 rounded-sm text-white'
                                             onClick={() => handleAddFavouriteWord(item)}
-                                        >{t('Add')}</button>
+                                        ><PlusCircleIcon width={20} /></button>
                                     </motion.div>
                                 ))}
-                            </motion.div>
+                            </div>
 
-                            <motion.div className='flex flex-col gap-1 mt-5'
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                variants={{
-                                    hidden: { opacity: 0, x: -100 },
-                                    visible: { opacity: 1, x: 0 }
-                                }}>
+                            <div className='flex flex-col gap-1 mt-5'>
                                 <h1>{t('HistoryRequests')}</h1>
 
                                 {historyWords.map((item: string) => (
                                     <div className='flex gap-3 align-top justify-between'>
                                         <span>{item}</span>
                                         <button
-                                            className='bg-moonstore w-[100px] py-1 px-2 rounded-sm text-white'
+                                            className='bg-moonstore min-w-[20px] py-1 px-2 rounded-sm text-white'
                                             onClick={() => handleAddFavouriteWord(item)}
-                                        >{t('Add')}</button>
+                                        ><PlusCircleIcon width={20} /></button>
                                     </div>
                                 ))}
-                            </motion.div>
+                            </div>
                         </div>
                     </>
                 )}
-
-
 
                 <motion.button
                     initial="hidden"

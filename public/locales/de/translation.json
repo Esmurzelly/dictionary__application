@@ -29,5 +29,6 @@
     "Back": "Zurück",
     "Not_Found": "Seite nicht gefunden",
     "MesssageOk": "Ihre Nachricht wurde erfolgreich gesendet",
-    "MessageError":"Es ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal"
+    "MessageError":"Es ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal",
+    "ErrorRequest": "Das eingegebene Wort ist falsch"
 }

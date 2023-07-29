@@ -29,5 +29,6 @@
     "Back": "Kembali",
     "Not_Found": "halaman tidak ditemukan",
     "MessageOk": "Pesan Anda berhasil dikirim",
-    "MessageError": "Ada yang tidak beres, silakan coba lagi nanti"
+    "MessageError": "Ada yang tidak beres, silakan coba lagi nanti",
+    "ErrorRequest": "Kata yang dimasukkan salah"
 }

@@ -29,5 +29,6 @@
     "Back": "后退",
     "Not_Found": "找不到网页",
     "MessageOk": "您的消息发送成功",
-    "MessageError": "出现问题，请稍后重试"
+    "MessageError": "出现问题，请稍后重试",
+    "ErrorRequest": "输入的单词不正确"
 }

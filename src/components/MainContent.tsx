@@ -46,7 +46,9 @@ const MainContent = () => {
 
         } catch (error) {
             console.log(error);
-            toast.error(`Введенное слово "${keyWord}" является некорректным`, {
+            toast.error(
+                `${t('ErrorRequest')} - ${keyWord}  `,
+                {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -151,14 +153,14 @@ const MainContent = () => {
                     <button
                         disabled={!result}
                         onClick={() => handleAddFavouriteWord(keyWord)}
-                        className='bg-moonstore w-full py-1 px-2 rounded-sm text-sm text-white sm:w-[100px]'
+                        className='bg-moonstore cursor-pointer w-full py-1 px-2 rounded-sm text-sm text-white sm:w-[47%]'
                     >
                         {t('addToBookmark')}
                     </button>
 
                     <button
                         onClick={() => handleRemoveFavouriteWord(keyWord)}
-                        className='bg-chilli_red w-full py-1 px-2 rounded-sm text-sm text-white sm:w-[100px]'
+                        className='bg-chilli_red cursor-pointer w-full py-1 px-2 rounded-sm text-sm text-white sm:w-[47%]'
                     >
                         {t('removeFromBookmark')}
                     </button>

@@ -8,11 +8,11 @@ import { useTranslation } from 'react-i18next';
 import ChangeThemeButton from './ChangeThemeButton';
 
 const NavBar = () => {
-  const { i18n } = useTranslation();
-
   const [theme, setTheme] = useState<string>(() => {
     return typeof window !== 'undefined' ? localStorage.getItem('theme') || 'light' : 'light';
   });
+  
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (theme === 'dark') {
