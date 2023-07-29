@@ -177,13 +177,23 @@ const Bookmarks = () => {
                                 <h1>{t('Bookmarks')}</h1>
 
                                 {favouriteWords.map((item: string) => (
-                                    <div className='flex gap-3 align-top justify-between'>
+                                    <motion.div
+                                        className='flex gap-3 align-top justify-between'
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true,  }}
+                                        transition={{ duration: 0.5, delay: 0.2 }}
+                                        variants={{
+                                            hidden: { opacity: 0, x: -100 },
+                                            visible: { opacity: 1, x: 0 }
+                                        }}
+                                    >
                                         <span>{item}</span>
                                         <button
                                             className='bg-chilli_red min-w-[20px] py-1 px-2 rounded-sm text-white'
                                             onClick={() => handleRemoveFavouriteWord(item)}
                                         ><TrashIcon width={20} /> </button>
-                                    </div>
+                                    </motion.div>
 
                                 ))}
                             </div>
