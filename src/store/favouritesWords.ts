@@ -4,7 +4,6 @@ const removeDublicates = (array: string[]):string[] => {
     return [...new Set(array)]
 }
 
-
 interface IFavourites {
     favourites: Array<string>
 }
@@ -12,7 +11,6 @@ interface IFavourites {
 const initialState: IFavourites = {
     favourites: removeDublicates(JSON.parse(localStorage.getItem('favouriteWords') || '[]'))
 }
-
 
 
 const favouritesSlice = createSlice({

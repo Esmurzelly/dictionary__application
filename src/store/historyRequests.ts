@@ -6,7 +6,7 @@ const removeDublicates = (array: string[]):string[] => {
 
 
 interface IHistoryRequests {
-    history: Array<string>
+  history: Array<string>
 }
 
 const storedHistory = localStorage.getItem('historyWords');

@@ -43,9 +43,7 @@ const MainContent = () => {
 
             addHistoryWordFunction(keyWord)
 
-
         } catch (error) {
-            console.log(error);
             toast.error(
                 `${t('ErrorRequest')} - ${keyWord}  `,
                 {
