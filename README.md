@@ -89,28 +89,4 @@ const favouritesSlice = createSlice({
 });
 ```
 
----
-__Жирный__
-
-___
-
-_Курсив_
-
-***
-
-___Жирный Курсив___
-
-Code
-```
-useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", 'dark')
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", 'light');
-    }
-  }, [theme]);
-```
-
 [Up](#anchor)
