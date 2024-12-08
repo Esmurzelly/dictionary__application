@@ -33,7 +33,7 @@ The project is written due to __Vite__ + __ReactJS__ + __Redux Toolkit__ + __Typ
 ### Instruction:
 * Main Page
 
-![картинка](./public/readmeImage/markdownImage.png)
+![image1](./public/readmeImage/markdownImage.png)
 
 1. The field for writing a needed word
 2. Search button (after clicking user gets response from api)
@@ -43,16 +43,51 @@ The project is written due to __Vite__ + __ReactJS__ + __Redux Toolkit__ + __Typ
 6. Remove entered word to Bookmarks
 7. List of favourite words (_point 5_)
 8. List of bookmarked words (_point 6_)
-9. Your search history
+9. User's search history
 10. Clear all History
 (also user has an opportunity to send email to developer :))
 
 * Bookmarks Page
 
-<!-- * фывфыв
-* фывфыв
-  * фывфыв -->
+![image2](./public/readmeImage/markdownImage2.png)
 
+1. List of user's current Bookmarks (user can delete each item)
+2. Deleted Words (user can add them to Bookmarks again)
+3. User's words history (user also can add words to Bookmark)
+
+Feature 
+: User cannot add word to Bookmarks if current word is already in the list. Below is the example from __reducer__
+
+Code
+```
+const removeDublicates = (array: string[]):string[] => {
+    return [...new Set(array)]
+}
+
+interface IFavourites {
+    favourites: Array<string>
+}
+
+const initialState: IFavourites = {
+    favourites: removeDublicates(JSON.parse(localStorage.getItem('favouriteWords') || '[]'))
+}
+
+const favouritesSlice = createSlice({
+    name: 'favourites',
+    initialState,
+    reducers: {
+        addFavouriteWord(state, action: PayloadAction<string>) {
+            state.favourites.push(action.payload.toLowerCase());
+            state.favourites = removeDublicates(state.favourites);
+            localStorage.setItem('favouriteWords', JSON.stringify(state.favourites));
+        },
+        removeFavouriteWord(state, action: PayloadAction<number>) {
+            state.favourites.splice(action.payload, 1);
+            localStorage.setItem('favouriteWords', JSON.stringify(state.favourites));
+        }
+    },
+});
+```
 
 ---
 __Жирный__
@@ -77,42 +112,5 @@ useEffect(() => {
     }
   }, [theme]);
 ```
-
-> Цитата 
-фывфывфыв
-фывйуйвцыфффв lorem15
->> Вложенная цитата
-
-Сноска первая[^1] и вторая[^2]
-
-***
-
-[^1]: текст сноски 1
-[^2]: текст сноски 2 - сноска всегда уходит в конец
-
-Ссылка:
-[ссылка на что-то](https://github.com/Esmurzelly/short_work)
-
-***
-
-![картинка](./client/public/vite.svg)
-
-Изображение-ссылка:
-[![картинка](./client/public/vite.svg)](https://github.com/Esmurzelly/short_work)
-
-*** 
-
-Таблица:
-
-цвет | количество | размер
-:----|:-----------|-------:
-красный | 1 | 256
-синий   | 2 | 22
-зеленый | 5 | 6543
-
-\# text
-
-Термин 
-: Определение
 
 [Up](#anchor)
